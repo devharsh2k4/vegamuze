@@ -4,6 +4,8 @@ import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import SupabaseProvider from "@/providers/SupabaseProviders";
 import UserProvider from "@/providers/UserProvider";
+import ModalProvider from "@/providers/ModalProvider";
+import ToastProvider from "@/providers/ToasterProvider";
 
 const font = Figtree({
   
@@ -27,8 +29,10 @@ export default function RootLayout({
       <body
         className={`${font.className} antialiased`}
       >
+        <ToastProvider/>
         <SupabaseProvider>
           <UserProvider>
+          <ModalProvider />
         <Sidebar>
         {children}
         </Sidebar>
