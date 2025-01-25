@@ -55,8 +55,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
     return () => {
       sound?.unload();
     };
-  }),
-    [sound];
+  }, [sound]);
 
   const handlePlay = () => {
     if (isPlaying) {
@@ -66,13 +65,12 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
     }
   };
 
-  const toggleMute =() => {
-    if(volume === 0){
+  const toggleMute = () => {
+    if (volume === 0) {
       setVolume(1);
-   
+    } else {
+      setVolume(0);
     }
-    setVolume(0);
-    
   }
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 h-full ">
@@ -85,7 +83,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
 
       <div className="flex md:hidden col-auto w-full justify-end items-center">
         <div
-          onClick={() => {}}
+          onClick={handlePlay}
           className="h-10 w-10 flex items-center justify-center rounded-full bg-white p-1 cursor-pointer"
         >
           <Icon size={30} className="text-black" />
