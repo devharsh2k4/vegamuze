@@ -13,10 +13,12 @@ import useSubscribeModal from "@/hooks/useSubscribeModal";
 
 interface LibraryProps {
   songs:Song[]
+  title?:string;
 }
 
 const Library:React.FC<LibraryProps> = ({
-  songs
+  songs,
+  title
 }) => {
   const subscribeModal = useSubscribeModal();
   const onPlay = useOnPlay(songs);
@@ -30,9 +32,9 @@ const Library:React.FC<LibraryProps> = ({
      return authModal.onOpen();
    }
 
-   if(!subscription){
-    return subscribeModal.onOpen();
-   }
+  //  if(!subscription){
+  //   return subscribeModal.onOpen();
+  //  }
 
    return uploadModal.onOpen();
   };
@@ -41,7 +43,7 @@ const Library:React.FC<LibraryProps> = ({
       <div className="flex items-center justify-between px-5 pt-4">
         <div className="inline-flex items-center gap-x-2">
             <TbPlaylist className="text-neutral-400" size={26} />
-            <p className="text-neutral-400 font-medium text-md ">Your Library</p>
+            <p className="text-neutral-400 font-medium text-md ">{title}</p>
         </div>
         <AiOutlinePlus
         onClick={onClick}

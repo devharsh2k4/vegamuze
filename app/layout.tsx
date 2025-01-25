@@ -1,3 +1,4 @@
+import ProfileHeader from "@/components/ProfileHeader";
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
@@ -9,9 +10,10 @@ import ToastProvider from "@/providers/ToasterProvider";
 import getSongsByUserId from "@/actions/getSongsByUserId";
 import Player from "@/components/Player";
 import getActiveProductWithPrices from "@/actions/getActiveProductsWithPrices";
+import Library from "@/components/Library";
+import SecondSidebar from "@/components/SecondSidebar";
 
 const font = Figtree({
-  
   subsets: ["latin"],
 });
 
@@ -21,8 +23,8 @@ export const metadata: Metadata = {
   title: "VegaMuze",
   description: "Best music up here",
 };
-  
-export default  async function RootLayout({
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -32,20 +34,26 @@ export default  async function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={`${font.className} antialiased`}
-      >
-        <ToastProvider/>
+      <body className={`${font.className} antialiased`}>
+        <ToastProvider />
         <SupabaseProvider>
           <UserProvider>
-          <ModalProvider products={products}/>
-        <Sidebar songs={userSongs}>
-        {children}
-        </Sidebar>
-        <Player />
-        </UserProvider>
+            <ModalProvider products={products} />
+            <div className="flex">
+              <Sidebar songs={userSongs}>
+                <main className="flex-1">{children}</main>
+              </Sidebar>
+            
+              
+              <div className="flex flex-col flex-1">
+                <ProfileHeader />
+                <Library songs={userSongs} title="Recently Played" />
+                <Library songs={userSongs} title="My Playlist" />
+              </div>
+            </div>
+            <Player />
+          </UserProvider>
         </SupabaseProvider>
-       
       </body>
     </html>
   );

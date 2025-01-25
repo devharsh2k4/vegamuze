@@ -1,47 +1,55 @@
 import getSongs from "@/actions/getSongs";
 import Header from "@/components/Header";
-import ListItem from "@/components/ListItem";
 import PageContent from "@/app/(site)/components/PageContent";
-import { DiVim } from "react-icons/di";
+import Image from "next/image";
 
 export const revalidate = 0;
 
-export default  async function Home() {
+export default async function Home() {
   const songs = await getSongs();
   return (
-   
-     <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
+    <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
       <Header>
-       <div
-       className="mb-2"
-       >
-        <h1
-        className="text-white text-3xl font-semibold"
-        >
-          Welcome back
-        </h1>
-        <div
-        className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 mt-4 "
-        >
-           <ListItem
-           image = "/images/liked.gif"
-           name = "Liked Songs"
-            href = "liked"
-           />
+        <div className="mb-2 h-full">
+          {/* Full-width card */}
+          <div className="relative bg-pink-500 p-6 rounded-lg flex items-center w-full overflow-hidden">
+            <div className="flex-1">
+              <p className="text-white text-sm font-light">New Album</p>
+              <h2 className="text-white text-3xl font-bold leading-tight">
+                THE SECOND STEP:
+                <br />
+                CHAPTER ONE
+              </h2>
+              <p className="text-black text-sm font-semibold mt-2">TREASURE</p>
+              <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition">
+                LISTEN NOW
+              </button>
+            </div>
+            {/* Fixing the image to remain within the card */}
+            <div className="flex-shrink-0">
+              <Image
+                src="/images/kpop.png" // Ensure this path matches your image file
+                alt="Treasure Album"
+                width={400}
+                height={200}
+                className="rounded-lg object-cover"
+              />
+            </div>
+          </div>
         </div>
-
-       </div>
       </Header>
       <div className="mt-2 mb-7 px-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-white text-2xl font-semibold">
-            Newest Songs
-          </h1>
+          <h1 className="text-white text-2xl font-semibold">Hello, Harsh</h1>
         </div>
         <div>
-          <PageContent songs={songs}/>
+          <PageContent songs={songs} />
+          <h1 className="text-white mt-8 text-2xl font-semibold">
+            Newest Songs
+          </h1>
+          <PageContent songs={songs} />
         </div>
       </div>
-     </div>
+    </div>
   );
 }
