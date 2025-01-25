@@ -90,13 +90,13 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 h-full items-center bg-black text-white px-4 py-2">
-      {/* Left Section: Media Info and Like Button */}
+      
       <div className="flex items-center gap-x-4">
         <MediaItem data={song} />
         <LikeButton songId={song.id} />
       </div>
 
-      {/* Center Section: Playback Controls */}
+   
       <div className="flex justify-center items-center col-span-2 md:col-auto gap-x-4">
         <IoShuffle
           onClick={toggleShuffle}
@@ -126,7 +126,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
         />
       </div>
 
-      {/* Right Section: Volume Control */}
+     
       <div className="hidden md:flex justify-end items-center gap-x-2 w-full">
         <VolumeIcon
           onClick={toggleMute}
