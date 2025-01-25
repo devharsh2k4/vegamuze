@@ -86,7 +86,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                             {...item}
                         />
                     ))}
-                    <p className="text-gray-400 text-sm">FEATURES</p>
+                    <p className="text-gray-400 text-sm">LIBRARY</p>
                     {Secondroutes.map((item) => (
                         <SidebarItem
                             key={item.label}
