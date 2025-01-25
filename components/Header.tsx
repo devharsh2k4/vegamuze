@@ -15,10 +15,10 @@ import usePlayer from "@/hooks/usePlayer";
 
 interface HeaderProps {
   children: React.ReactNode;
-  classname?: string;
+  className?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ children, classname }) => {
+const Header: React.FC<HeaderProps> = ({ children, className }) => {
   const player = usePlayer();
   const router = useRouter();
   const authModal = useAuthModal();
@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ children, classname }) => {
   };
 
   return (
-    <div className={twMerge(`h-fit bg-gradient-to-b bg-neutral-900 p-6`, classname)}>
+    <div className={twMerge(`h-fit bg-gradient-to-b bg-neutral-900 p-6`, className)}>
       <div className="w-full mb-4 flex items-center justify-between">
         <div className="hidden md:flex items-center gap-x-2">
           <button

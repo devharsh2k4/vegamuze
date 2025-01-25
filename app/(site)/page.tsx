@@ -11,7 +11,7 @@ export default async function Home() {
     <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
       <Header>
         <div className="mb-2 h-full">
-          {/* Full-width card */}
+      
           <div className="relative bg-pink-500 p-6 rounded-lg flex items-center w-full overflow-hidden">
             <div className="flex-1">
               <p className="text-white text-sm font-light">New Album</p>
@@ -25,10 +25,10 @@ export default async function Home() {
                 LISTEN NOW
               </button>
             </div>
-            {/* Fixing the image to remain within the card */}
+           
             <div className="flex-shrink-0">
               <Image
-                src="/images/kpop.png" // Ensure this path matches your image file
+                src="/images/kpop.png"
                 alt="Treasure Album"
                 width={400}
                 height={200}
