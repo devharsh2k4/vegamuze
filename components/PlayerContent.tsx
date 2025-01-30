@@ -89,15 +89,14 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 h-full items-center bg-black text-white px-4 py-2">
-      
+    <div className="flex flex-col md:grid md:grid-cols-3 h-full items-center bg-black text-white px-4 py-2 gap-y-2">
+
       <div className="flex items-center gap-x-4">
         <MediaItem data={song} />
         <LikeButton songId={song.id} />
       </div>
 
-   
-      <div className="flex justify-center items-center col-span-2 md:col-auto gap-x-4">
+      <div className="flex justify-center items-center gap-x-4 mt-2 md:mt-0">
         <IoShuffle
           onClick={toggleShuffle}
           size={24}
@@ -126,8 +125,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
         />
       </div>
 
-     
-      <div className="hidden md:flex justify-end items-center gap-x-2 w-full">
+      <div className="flex justify-end items-center gap-x-2 w-full md:w-auto mt-2 md:mt-0">
         <VolumeIcon
           onClick={toggleMute}
           size={34}

@@ -39,13 +39,11 @@ export default async function RootLayout({
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider products={products} />
-            <div className="flex">
-              <Sidebar songs={userSongs}>
+            <div className="flex flex-col md:flex-row">
+              <Sidebar songs={userSongs} className="w-64">
                 <main className="flex-1">{children}</main>
               </Sidebar>
-            
-              
-              <div className="flex flex-col flex-1">
+              <div className="flex flex-col flex-1 md:w-64">
                 <ProfileHeader />
                 <Library songs={userSongs} title="Recently Played" />
                 <Library songs={userSongs} title="My Playlist" />

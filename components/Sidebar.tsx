@@ -16,11 +16,13 @@ import SecondSidebar from "./SecondSidebar";
 interface SidebarProps {
     children: React.ReactNode;
     songs: Song[];
+    className?: string;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
     children,
-    songs
+    songs,
+    className
 }) => {
     const player = usePlayer();
     const pathname = usePathname();

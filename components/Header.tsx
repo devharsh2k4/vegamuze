@@ -56,7 +56,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           </button>
         </div>
 
-        <div className="relative w-full max-w-xl">
+        <div className="relative w-full max-w-xl mx-4">
           <input
             type="text"
             placeholder="Search for artists, songs, or albums"
@@ -75,24 +75,23 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           </button>
         </div>
 
-        <div className="flex justify-between items-center gap-x-4">
+        <div className="flex justify-between items-center gap-x-4 ml-4">
           {user ? (
             <div className="flex gap-x-4 items-center">
               <Button onClick={handleLogout} className="bg-white px-6 py-2">
                 Logout
               </Button>
-             
             </div>
           ) : (
             <>
               <div>
                 <Button onClick={authModal.onOpen} className="bg-transparent text-neutral-300 font-medium">
-                  Sign Up
+                  Signup
                 </Button>
               </div>
               <div>
                 <Button onClick={authModal.onOpen} className="bg-white px-6 py-2">
-                  Log in
+                  Login
                 </Button>
               </div>
             </>
